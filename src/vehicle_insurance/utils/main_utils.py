@@ -29,12 +29,27 @@ def write_yaml_file(file_path:str,content:object , replace:bool = False) -> None
     except Exception as e:
         raise MyException(e,sys)
     
+def load_numpy_array_data(file_path:str) ->np.array:
+    try:
+        with open(file_path,'rb') as file_object:
+            return np.load(file_object)
+    except Exception as e:
+        raise MyException(e,sys)
+    
 def save_numpy_array_data(file_path:str,array:np.array):
     try:
         dir_path = os.path.dirname(file_path)
         os.makedirs(dir_path,exist_ok=True)
         with open(file_path,'wb') as file:
             np.save(file,array)
+    except Exception as e:
+        raise MyException(e,sys)
+    
+def load_object(file_path:str,obj:object) -> None:
+    try:
+        with open(file_path,'rb') as file_object:
+            obj = dill.load(file_object)
+        return obj
     except Exception as e:
         raise MyException(e,sys)
     
