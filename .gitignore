@@ -161,5 +161,22 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+# =========================
+# MLOps specific
+# =========================
 artifact/
+artifacts/
+data/
+mlruns/
 logs/
+
+# DVC
+.dvc/cache/
+
+# Notebooks (generated files)
+notebook/
+
+
+# OS
+.DS_Store
+Thumbs.db
